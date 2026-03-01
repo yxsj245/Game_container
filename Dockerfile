@@ -1,7 +1,7 @@
 FROM debian:trixie-slim AS base
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    STEAM_USER=root \
+    STEAM_USER=steam \
     STEAM_HOME=/home/steam \
     STEAMCMD_DIR=/home/steam/steamcmd \
     GAMES_DIR=/home/steam/games
@@ -166,8 +166,8 @@ COPY --chown=steam:steam start.sh /home/steam/start.sh
 # 创建目录用于挂载游戏数据
 VOLUME ["${GAMES_DIR}"]
 
-# 切回steam用户
-USER ${STEAM_USER}
+# 以root用户运行容器
+USER root
 WORKDIR ${STEAM_HOME}
 
 # 启动容器时运行start.sh
