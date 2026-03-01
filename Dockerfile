@@ -1,7 +1,7 @@
 FROM debian:trixie-slim AS base
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    STEAM_USER=steam \
+    STEAM_USER=root \
     STEAM_HOME=/home/steam \
     STEAMCMD_DIR=/home/steam/steamcmd \
     GAMES_DIR=/home/steam/games
